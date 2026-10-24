@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  QUICK EDIT GUIDE
+  1. GYM NAME     -> search for "CHANGE NAME" (title, logo, hero, about, contact)
+  2. PRICES       -> search for "CHANGE PRICES" (Membership plans section)
+  3. TIMINGS      -> search for "CHANGE TIMINGS" (Timings section)
+  4. PHONE NUMBER -> search for "CHANGE PHONE" (2 WhatsApp buttons, 1 call link, 1 visible number)
+     Tip: use Find & Replace for 919213428663 to update all WhatsApp/call links at once.
+-->
+
+<!-- CHANGE NAME: browser tab title -->
+<title>Iron Pulse Fitness | Gym in Vadodara</title>
+<meta name="description" content="Iron Pulse Fitness is a demo gym in Vadodara with cardio, free weights, personal training and simple membership plans.">
+<meta name="theme-color" content="#161618">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23FF6B1A'/%3E%3C/svg%3E">
+
+<style>
+  /* ---------- Colours and fonts (change here to re-theme) ---------- */
+  :root {
+    --bg: #161618;
+    --bg-alt: #1F1F22;
+    --surface: #26262A;
+    --line: #3A3A40;
+    --text: #F4F2EE;
+    --muted: #B4B1AA;
+    --orange: #FF6B1A;
+    --on-orange: #141414;
+    /* No web fonts are loaded: these are fonts already on the visitor's device */
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6;
+    color: var(--text); background: var(--bg);
+  }
+  /* text-wrap: balance keeps headings from leaving one word alone on a line */
+  h1, h2, h3 { margin: 0; line-height: 1.05; font-weight: 800; font-style: italic; letter-spacing: -.01em; text-wrap: balance; }
+  p { margin: 0 0 1rem; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+  .wrap { width: min(1080px, calc(100% - 2.5rem)); margin-inline: auto; }
+
+  /* ---------- Header ---------- */
+  .site-header { padding: 1.25rem 0; }
+  .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
+  .logo { font-size: 1.3rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: .02em; text-decoration: none; }
+  .logo span { color: var(--orange); }
+  .nav { display: flex; justify-content: space-between; width: 100%; font-size: .88rem; }
+  .nav a { text-decoration: none; color: var(--muted); padding: .3rem 0; }
+  .nav a:hover { color: var(--orange); }
+  @media (min-width: 720px) { .nav { width: auto; gap: 2rem; font-size: .95rem; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+    background: var(--orange); color: var(--on-orange); font-weight: 800; text-decoration: none;
+    padding: 1rem 1.6rem; border-radius: 10px; text-align: center; text-wrap: balance;
+    transition: background .2s, transform .15s;
+  }
+  .btn:hover { background: #FF8240; }
+  .btn:active { transform: translateY(1px); }
+  .btn svg { width: 1.3em; height: 1.3em; flex: none; fill: currentColor; }
+  .btn-dark { background: #141414; color: var(--orange); }
+  .btn-dark:hover { background: #2B2B2F; }
+  @media (max-width: 480px) { .btn { width: 100%; font-size: .95rem; padding: 1rem .9rem; } }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: clamp(2rem, 7vw, 5rem) 0 2.5rem; }
+  .hero-name { display: block; font-size: clamp(2.75rem, 12.5vw, 7.5rem); line-height: .95; font-weight: 900; text-transform: uppercase; }
+  .hero-sub { display: block; margin-top: .5rem; font-size: clamp(1.4rem, 5.5vw, 2.75rem); font-weight: 800; text-transform: uppercase; letter-spacing: .22em; color: var(--orange); }
+  .tagline { font-size: 1.25rem; color: var(--muted); max-width: 30ch; margin: 1.5rem 0 2rem; text-wrap: balance; }
+  .fine { font-size: .9rem; color: var(--muted); margin: .9rem 0 0; }
+
+  /* Heartbeat line: the "pulse" in Iron Pulse (decorative, draws once on load) */
+  .pulse { height: 90px; overflow: hidden; }
+  .pulse svg { display: block; width: 2160px; height: 90px; }
+  .pulse path {
+    fill: none; stroke: var(--orange); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 1; stroke-dashoffset: 0; animation: draw 2s ease-out both;
+    filter: drop-shadow(0 0 6px rgba(255, 107, 26, .55));
+  }
+  @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .pulse path { animation: none; } }
+
+  /* ---------- Sections ---------- */
+  .section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .alt { background: var(--bg-alt); }
+  .section h2 { font-size: clamp(2rem, 8vw, 3.5rem); margin-bottom: .75rem; }
+  .lead { color: var(--muted); max-width: 36ch; }
+  .split { display: grid; gap: 2rem; }
+  @media (min-width: 820px) { .split { grid-template-columns: .8fr 1.2fr; gap: 4rem; } }
+
+  /* Membership plans */
+  .plans { display: grid; gap: 2rem 1.25rem; margin-top: 2.75rem; }
+  @media (min-width: 860px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+  .plan { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 2rem 1.75rem 1.75rem; }
+  .plan.featured { border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange); }
+  .tag { position: absolute; top: -.85rem; left: 1.75rem; background: var(--orange); color: var(--on-orange); font-size: .8rem; font-weight: 800; padding: .2rem .8rem; border-radius: 999px; }
+  .plan h3 { font-size: 1.5rem; }
+  .price { margin: .9rem 0 .25rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; }
+  .amt { font-size: clamp(2.5rem, 10vw, 3.25rem); font-weight: 900; font-style: italic; line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
+  .per { color: var(--muted); }
+  .saving { color: var(--orange); font-weight: 600; margin: 0 0 1.25rem; }
+  .plan ul { list-style: none; margin: 0; padding: 1.25rem 0 0; border-top: 1px solid var(--line); display: grid; gap: .6rem; }
+  .plan li { position: relative; padding-left: 1.6rem; }
+  .plan li::before {
+    content: ""; position: absolute; left: .15rem; top: .35em; width: .5rem; height: .85rem;
+    border: solid var(--orange); border-width: 0 3px 3px 0; transform: rotate(45deg);
+  }
+
+  /* Facilities */
+  .facilities { display: grid; gap: 2rem; margin-top: 2.75rem; }
+  @media (min-width: 600px) { .facilities { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 2rem; } }
+  @media (min-width: 960px) { .facilities { grid-template-columns: repeat(4, 1fr); } }
+  .facility { border-top: 3px solid var(--orange); padding-top: 1rem; }
+  .facility h3 { font-size: 1.4rem; margin-bottom: .4rem; }
+  .facility p { color: var(--muted); margin: 0; }
+
+  /* Timings: same layout for every row */
+  .hours { margin: 0; }
+  .hours div {
+    display: flex; justify-content: space-between; align-items: baseline; gap: .25rem 1.5rem;
+    padding: 1.1rem 0; border-bottom: 1px solid var(--line);
+  }
+  .hours dt { font-size: 1.3rem; font-weight: 800; font-style: italic; }
+  .hours dd { margin: 0; color: var(--orange); font-weight: 700; font-variant-numeric: tabular-nums; }
+  /* Small screens: label on top, time below, both left-aligned */
+  @media (max-width: 520px) { .hours div { flex-direction: column; align-items: flex-start; } }
+  .note { font-size: .95rem; color: var(--muted); margin-top: 1.25rem; }
+
+  /* About */
+  .about-text { font-size: clamp(1.2rem, 3.2vw, 1.45rem); line-height: 1.55; max-width: 34em; }
+  .facts { list-style: none; margin: 1.75rem 0 0; padding: 0; display: grid; gap: .9rem; }
+  .facts li { position: relative; padding-left: 1.5rem; }
+  .facts li::before { content: ""; position: absolute; left: 0; top: .6em; width: .6rem; height: .6rem; background: var(--orange); transform: skewX(-20deg); }
+
+  /* Contact: a solid orange band to close the page */
+  .contact { background: var(--orange); color: var(--on-orange); }
+  .contact .lead { color: #2A1608; }
+  .contact address { font-style: normal; margin-bottom: 1rem; }
+  .contact a:not(.btn) { font-weight: 700; }
+  .contact .btn { margin-top: .75rem; }
+  .contact :focus-visible { outline-color: var(--on-orange); }
+
+  /* Footer */
+  .site-footer { background: #0F0F11; color: var(--muted); text-align: center; padding: 1.25rem; font-size: .9rem; }
+  .site-footer p { margin: 0; }
+</style>
+</head>
+
+<body>
+
+<!-- WhatsApp icon, defined once and reused by both buttons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3Z"/></symbol></svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <!-- CHANGE NAME: logo -->
+    <a class="logo" href="#top">Iron <span>Pulse</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#plans">Plans</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#timings">Timings</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <!-- CHANGE NAME: hero heading (big line + smaller orange line) -->
+      <h1><span class="hero-name">Iron Pulse</span><span class="hero-sub">Fitness</span></h1>
+      <!-- Change the tagline here -->
+      <p class="tagline">Strength, cardio and coaching under one roof in Vadodara.</p>
+
+      <!-- CHANGE PHONE: 919213428663 = country code 91 + 10-digit number, no + or spaces.
+           The text after ?text= is the ready message (%20 = space, %2C = comma). -->
+      <a class="btn" href="https://wa.me/919213428663?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20session">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>
+        Book a Free Trial on WhatsApp
+      </a>
+      <p class="fine">No joining fee. Just turn up and train.</p>
+    </div>
+
+    <!-- Decorative heartbeat line (hidden from screen readers) -->
+    <div class="pulse" aria-hidden="true">
+      <svg viewBox="0 0 2400 100" preserveAspectRatio="xMinYMid meet">
+        <path pathLength="1" d="M0 60H130L150 50L170 60H210L230 20L255 92L280 4L305 60H335L360 46L385 60H640L660 50L680 60H720L740 20L765 92L790 4L815 60H845L870 46L895 60H1150L1170 50L1190 60H1230L1250 20L1275 92L1300 4L1325 60H1355L1380 46L1405 60H2400"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ================= MEMBERSHIP PLANS ================= -->
+  <section class="section" id="plans">
+    <div class="wrap">
+      <h2>Membership plans</h2>
+      <p class="lead">Try a free session first, then pick the plan that suits you.</p>
+
+      <!-- CHANGE PRICES: edit the amount inside each <span class="amt">.
+           If you change a price, also update the "saving" line under it
+           (Quarterly = 3 months, Yearly = 12 months). -->
+      <div class="plans">
+        <article class="plan">
+          <h3>Monthly</h3>
+          <p class="price"><span class="amt">₹1,000</span><span class="per">/ month</span></p>
+          <p class="saving">Pay month to month</p>
+          <ul>
+            <li>Full gym access</li>
+            <li>Locker and shower use</li>
+            <li>No joining fee</li>
+          </ul>
+        </article>
+
+        <article class="plan featured">
+          <span class="tag">Most popular</span>
+          <h3>Quarterly</h3>
+          <p class="price"><span class="amt">₹2,700</span><span class="per">/ 3 months</span></p>
+          <p class="saving">₹900 a month. Save ₹300.</p>
+          <ul>
+            <li>Everything in Monthly</li>
+            <li>One free diet consultation</li>
+            <li>Freeze for up to 7 days</li>
+          </ul>
+        </article>
+
+        <article class="plan">
+          <h3>Yearly</h3>
+          <p class="price"><span class="amt">₹8,500</span><span class="per">/ year</span></p>
+          <p class="saving">About ₹708 a month. Save ₹3,500.</p>
+          <ul>
+            <li>Everything in Quarterly</li>
+            <li>Two free personal training sessions</li>
+            <li>Freeze for up to 30 days</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FACILITIES ================= -->
+  <section class="section alt" id="facilities">
+    <div class="wrap">
+      <h2>Facilities</h2>
+      <p class="lead">Everything you need to train properly, nothing you don’t.</p>
+
+      <div class="facilities">
+        <div class="facility">
+          <h3>Cardio zone</h3>
+          <p>Treadmills, cross-trainers and bikes with a clear view of the whole floor.</p>
+        </div>
+        <div class="facility">
+          <h3>Free weights</h3>
+          <p>Dumbbells up to 50 kg, barbells and racks for squats, deadlifts and bench.</p>
+        </div>
+        <div class="facility">
+          <h3>Personal training</h3>
+          <p>One-to-one coaching with a plan built around your goal and your schedule.</p>
+        </div>
+        <div class="facility">
+          <h3>Locker room</h3>
+          <p>Clean lockers, showers and a changing area, open during all gym hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMINGS ================= -->
+  <section class="section" id="timings">
+    <div class="wrap split">
+      <div>
+        <h2>Timings</h2>
+        <p class="lead">Walk in during any open hour for your free trial session.</p>
+      </div>
+      <div>
+        <!-- CHANGE TIMINGS: edit the label (<dt>) and the time (<dd>) in each row.
+             To add a row, copy one whole <div>...</div> line. -->
+        <dl class="hours">
+          <div><dt>Mon–Sat mornings</dt><dd>5:30 am – 10:00 am</dd></div>
+          <div><dt>Mon–Sat evenings</dt><dd>4:00 pm – 10:00 pm</dd></div>
+          <div><dt>Sunday</dt><dd>7:00 am – 12:00 pm</dd></div>
+        </dl>
+        <p class="note">Mon–Sat means Monday to Saturday. Closed on major festivals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section alt" id="about">
+    <div class="wrap split">
+      <div>
+        <h2>About us</h2>
+      </div>
+      <div>
+        <!-- CHANGE NAME: gym name also appears in this paragraph. Edit the story freely. -->
+        <p class="about-text">Iron Pulse Fitness is a no-nonsense gym for people who want real results, whether you’re lifting for the first time or training for a competition. Our coaches keep it simple: good form, steady progress and a floor where everyone is welcome.</p>
+        <ul class="facts">
+          <li>Open since 2019, started by a former state-level powerlifter</li>
+          <li>Four certified trainers on the floor every shift</li>
+          <li>A free trial session for every new member</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="wrap split">
+      <div>
+        <h2>Come train with&nbsp;us</h2>
+        <p class="lead">Message us on WhatsApp and we’ll book your free trial.</p>
+      </div>
+      <div>
+        <!-- CHANGE NAME and address here (fictional address) -->
+        <address>
+          Iron Pulse Fitness<br>
+          1st Floor, Sky Arcade, Gotri Road<br>
+          Vadodara, Gujarat 390021
+        </address>
+
+        <!-- CHANGE PHONE: update both the tel: link (+919213428663) and the visible number -->
+        <p>Call us: <a href="tel:+919213428663">+91 92134 28663</a></p>
+
+        <!-- CHANGE PHONE: WhatsApp number (919213428663) and message -->
+        <a class="btn btn-dark" href="https://wa.me/919213428663?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20session">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>
+          Book a Free Trial on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Demo website - fictional business</p>
+</footer>
+
+</body>
+</html>
